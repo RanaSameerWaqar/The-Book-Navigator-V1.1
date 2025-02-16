@@ -17,7 +17,7 @@ Project 1.1 is a simple web-based application that includes an admin page, a use
 ## Installation
 Clone the repository:
 ```bash
-git clone https://github.com/yourusername/project1.1.git
+git clone https://github.com/RanaSameerWaqar/The-Book-Navigator-V1.1.git
 ```
 Navigate to the project directory:
 ```bash
