@@ -39,7 +39,7 @@ Open `login.html` in a web browser to access the login page.
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
-This project is open-source and available under the MIT License.
+This project is open-source and available under the License by SAM DEV WORKS.
 
 ## Contact
 For any inquiries, please contact [ranasameerwaqar@gmail.com](mailto:ranasameerwaqar@gmail.com).
