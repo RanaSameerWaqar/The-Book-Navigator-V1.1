@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Login Form Container -->
+    <form id="loginForm">
+        <!-- Input for Email -->
+        <input type="email" placeholder="Email" id="email" required>
+        <!-- Input for Password -->
+        <input type="password" placeholder="Password" id="password" required>
+        <!-- Button to submit the form -->
+        <button type="submit" id="loginButton">Login</button>
+    </form>
+    
+    <script>
+        // Sample Users (Stored in localStorage)
+        const users = [
+          { email: "admin@skylinestudio.uk", password: "admin123", role: "admin" },
+          { email: "user@skylinestudio.uk", password: "user123", role: "user" }
+        ];
+        // Save sample users to localStorage
+        localStorage.setItem("users", JSON.stringify(users));
+    
+        // Event listener for form submission
+        document.getElementById("loginForm").addEventListener("submit", (e) => {
+          e.preventDefault();
+          // Get email and password values from the form
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          // Find the user with matching email and password
+          const user = users.find(u => u.email === email && u.password === password);
+          
+          if (user) {
+            // Save the current user to sessionStorage
+            sessionStorage.setItem("currentUser", JSON.stringify(user));
+            // Redirect based on user role
+            window.location.href = user.role === "admin" ? "admin.html" : "user.html";
+          } else {
+            // Show alert for invalid credentials
+            alert("Invalid credentials!");
+          }
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>DEVELOPED BY SAM DEV WORKS</p>
+    </footer>
+</body>
+</html>

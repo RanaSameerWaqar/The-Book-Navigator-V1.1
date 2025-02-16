@@ -1,0 +1,188 @@
+*{
+  @import url('https://fonts.googleapis.com/css2?family=Grechen+Fuemen&family=MuseoModerno:ital,wght@0,100..900;1,100..900&display=swap');
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+form {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px; /* Ensure space between form and footer */
+}
+
+input[type="email"],
+input[type="password"],
+input[type="text"],
+input[type="number"],
+input[type="url"],
+textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  width: 100%;
+}
+
+button {
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Specific styles for IDs */
+#email,
+#password,
+#bookName,
+#chapterName,
+#problemNumber,
+#solution,
+#imageUrl {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+#loginButton,
+#addSolutionButton {
+  border-radius: 10px;
+  font-family: "Grechen Fuemen", serif;
+  font-optical-sizing: auto;
+  font-weight: bold;
+  background-color: #28a745;
+}
+
+#loginButton:hover,
+#addSolutionButton:hover {
+  background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  body {
+    padding: 20px;
+  }
+
+  form {
+    width: 100%;
+    padding: 15px;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  input[type="text"],
+  input[type="number"],
+  input[type="url"],
+  textarea {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+}
+
+/* User Interface Specific Styles */
+.user-interface {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.user-interface .layout {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-interface .left-sidebar,
+.user-interface .center,
+.user-interface .right-sidebar {
+  flex: 1;
+  padding: 10px;
+}
+
+.user-interface .left-sidebar {
+  background-color: #f8f9fa;
+  border-right: 1px solid #dee2e6;
+}
+
+.user-interface .center {
+  background-color: #fff;
+}
+
+.user-interface .right-sidebar {
+  background-color: #f8f9fa;
+  border-left: 1px solid #dee2e6;
+}
+
+@media (max-width: 768px) {
+  .user-interface .layout {
+    flex-direction: column;
+  }
+
+  .user-interface .left-sidebar,
+  .user-interface .center,
+  .user-interface .right-sidebar {
+    border: none;
+  }
+}
+
+/* Image size adjustment */
+img {
+  padding: 10px;
+  border: 2px solid black;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Solution styling */
+.solution {
+  margin-bottom: 20px;
+  padding: 15px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #dee2e6;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px; /* Ensure space between form and footer */
+}
+

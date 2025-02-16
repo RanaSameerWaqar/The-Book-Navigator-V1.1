@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Search Interface -->
+    <div class="user-interface">
+        <!-- Search Input -->
+        <input type="text" id="searchInput" placeholder="Search problems...">
+        
+        <!-- Layout for displaying chapters, solutions, and book details -->
+        <div class="layout">
+            <!-- Left Sidebar for Chapter List -->
+            <div class="left-sidebar" id="chapterList"></div>
+            
+            <!-- Center Area for Solution Display -->
+            <div class="center" id="solutionDisplay"></div>
+            
+            <!-- Right Sidebar for Book Details -->
+            <div class="right-sidebar" id="bookDetails"></div>
+        </div>
+    </div>
+    
+    <script>
+        // Search Functionality
+        document.getElementById("searchInput").addEventListener("input", (e) => {
+            const query = e.target.value.toLowerCase();
+            const books = JSON.parse(localStorage.getItem("books")) || [];
+            
+            // Filter and Display Results
+            const results = books.flatMap(book => 
+                book.chapters.flatMap(chapter => 
+                    chapter.problems.filter(problem => 
+                        problem.solution.toLowerCase().includes(query)
+                    )
+                )
+            );
+            
+            // Update UI with filtered results
+            document.getElementById("solutionDisplay").innerHTML = results.map(problem => `
+                <div class="solution" id="solution-${problem.number}">
+                    <p>${problem.solution}</p>
+                    ${problem.image ? `<img src="${problem.image}" alt="Solution Image" id="solutionImage-${problem.number}">` : ""}
+                </div>
+            `).join("");
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>DEVELOPED BY SAM DEV WORKS</p>
+    </footer>
+</body>
+</html>

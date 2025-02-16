@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags for character set and viewport settings -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Form</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Admin Panel Container -->
+<div class="admin-panel">
+    <!-- Form for adding a new book -->
+    <form id="addBookForm">
+        <!-- Input for Book Name -->
+        <input type="text" placeholder="Book Name" id="bookName" required>
+        <!-- Input for Chapter Name -->
+        <input type="text" placeholder="Chapter Name" id="chapterName" required>
+        <!-- Input for Problem Number -->
+        <input type="number" placeholder="Problem Number" id="problemNumber" required>
+        <!-- Textarea for Solution -->
+        <textarea placeholder="Solution" id="solution" required></textarea>
+        <!-- Input for Image URL -->
+        <input type="url" placeholder="Image URL" id="imageUrl">
+        <!-- Button to submit the form -->
+        <button type="submit" id="addSolutionButton">Add Solution</button>
+    </form>
+  
+    <!-- Container to display the list of books -->
+    <div id="bookList"></div>
+</div>
+  
+<script>
+    // Retrieve books from localStorage or initialize an empty array
+    let books = JSON.parse(localStorage.getItem("books")) || [];
+  
+    // Event listener for form submission
+    document.getElementById("addBookForm").addEventListener("submit", (e) => {
+        e.preventDefault();
+        // Create a new book object with the form data
+        const newBook = {
+            name: document.getElementById("bookName").value,
+            chapters: [{
+                name: document.getElementById("chapterName").value,
+                problems: [{
+                    number: document.getElementById("problemNumber").value,
+                    solution: document.getElementById("solution").value,
+                    image: document.getElementById("imageUrl").value
+                }]
+            }]
+        };
+        // Add the new book to the books array
+        books.push(newBook);
+        // Save the updated books array to localStorage
+        localStorage.setItem("books", JSON.stringify(books));
+    });
+</script>
+
+<!-- Footer -->
+<footer>
+    <p>DEVELOPED BY SAM DEV WORKS</p>
+</footer>
+
+</body>
+</html>
